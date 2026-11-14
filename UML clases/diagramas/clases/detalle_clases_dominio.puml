@@ -1,0 +1,169 @@
+@startuml
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam monochrome false
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam packageStyle rectangle
+
+skinparam class {
+    BackgroundColor #F8F9FA
+    BorderColor #2B2D42
+    ArrowColor #2B2D42
+    HeaderBackgroundColor #E9ECEF
+}
+
+skinparam package {
+    BackgroundColor #F1F3F5
+    BorderColor #ADB5BD
+    FontStyle bold
+}
+
+' ==============================================================================
+' VISTA COMPLEMENTARIA: DETALLE DE LA CAPA DE DOMINIO
+' Modelo Conceptual y de Negocio Ferroviario
+' Cobertura: RF1, RF1.1, RF1.2, RF1.3, RF1.4, RF2.1, RF2.2, RF3, RF3.1, RF3.2, RF4, RF4.2
+' ==============================================================================
+package "Capa de Dominio (Nucleo Ferroviario)" as Dominio <<Layer>> {
+
+    class "ViaFerroviaria" as ViaFerroviaria <<Entity>> {
+        - idVia : String
+        - nombre : String
+        + getIdVia() : String
+        + getNombre() : String
+        + agregarDispositivo(dispositivo : DispositivoVia) : void
+        + obtenerDispositivos() : List<DispositivoVia>
+    }
+
+    class "DispositivoVia" as DispositivoVia <<Entity>> {
+        - idDispositivo : String
+        - separacionSiguienteMetros : int
+        - puntoKilometrico : double
+        + getIdDispositivo() : String
+        + getSeparacionSiguienteMetros() : int
+        + getPuntoKilometrico() : double
+        + registrarMedicion(medicion : MedicionElectrica) : void
+        + asociarIncidencia(incidencia : Incidencia) : void
+        + asociarPrediccion(prediccion : PrediccionIncidencia) : void
+        + obtenerMedicionesMinuto(minuto : String) : List<MedicionElectrica>
+        + obtenerTodasMediciones() : List<MedicionElectrica>
+    }
+
+    class "MedicionElectrica" as MedicionElectrica <<Value Object>> {
+        - hora : String
+        - voltaje : double
+        - estado : EstadoOcupacion
+        + getHora() : String
+        + getVoltaje() : double
+        + getEstado() : EstadoOcupacion
+        + estaOcupada() : boolean
+    }
+
+    class "Incidencia" as Incidencia <<Entity>> {
+        - idIncidencia : String
+        - fechaHora : DateTime
+        - tipo : TipoIncidencia
+        - origen : OrigenIncidencia
+        - descripcion : String
+        + getIdIncidencia() : String
+        + getFechaHora() : DateTime
+        + getTipo() : TipoIncidencia
+        + getOrigen() : OrigenIncidencia
+        + getDescripcion() : String
+    }
+
+    class "PrediccionIncidencia" as PrediccionIncidencia <<Entity>> {
+        - idPrediccion : String
+        - fechaHoraCalculo : DateTime
+        - tipoPronosticado : TipoIncidencia
+        - probabilidad : double
+        - horizonteEstimadoMinutos : int
+        + getIdPrediccion() : String
+        + getFechaHoraCalculo() : DateTime
+        + getTipoPronosticado() : TipoIncidencia
+        + getProbabilidad() : double
+        + getHorizonteEstimadoMinutos() : int
+    }
+
+    class "Usuario" as Usuario <<Entity>> {
+        - idUsuario : String
+        - nombre : String
+        - email : String
+        + getIdUsuario() : String
+        + getNombre() : String
+        + getEmail() : String
+    }
+
+    class "Gestor" as Gestor <<Entity>> {
+        + agregarSuscripcion(suscripcion : Suscripcion) : void
+        + eliminarSuscripcion(idSuscripcion : String) : void
+        + getSuscripciones() : List<Suscripcion>
+    }
+
+    class "Suscripcion" as Suscripcion <<Entity>> {
+        - idSuscripcion : String
+        - fechaAlta : DateTime
+        - tipoIncidencia : TipoIncidencia
+        + getIdSuscripcion() : String
+        + getFechaAlta() : DateTime
+        + getTipoIncidencia() : TipoIncidencia
+        + esAplicableA(tipo : TipoIncidencia) : boolean
+    }
+
+    enum "EstadoOcupacion" as EstadoOcupacion <<Enumeration>> {
+        OCUPADO : 0
+        LIBRE : 1
+    }
+
+    enum "TipoIncidencia" as TipoIncidencia <<Enumeration>> {
+        BLOQUEO_PROLONGADO
+        SALTO_FRECUENCIA
+    }
+
+    enum "OrigenIncidencia" as OrigenIncidencia <<Enumeration>> {
+        DETECTADA_ML
+        PUBLICADA_USUARIO
+    }
+}
+
+' ==============================================================================
+' RELACIONES EN LA CAPA DE DOMINIO
+' ==============================================================================
+ViaFerroviaria "1" *-- "0..*" DispositivoVia : contiene >
+DispositivoVia "1" *-- "0..*" MedicionElectrica : registra >
+DispositivoVia "1" o-- "0..*" Incidencia : afectada por >
+DispositivoVia "1" o-- "0..*" PrediccionIncidencia : objeto de >
+Usuario <|-- Gestor : herencia
+Gestor "1" *-- "0..*" Suscripcion : gestiona >
+
+' ==============================================================================
+' NOTAS EXPLICATIVAS DE DOMINIO
+' ==============================================================================
+note top of ViaFerroviaria
+  <b>Estructura Ferroviaria (RF3, RF3.1, RF3.2)</b>
+  - Dispositivos cada 200 o 500 m.
+  - Cada dispositivo porta un identificador unívoco.
+  - Multiplicidad 0..* permite tramos nuevos sin sensores.
+end note
+
+note right of MedicionElectrica
+  <b>Adquisicion y Señal (RF2.1, RF2.2)</b>
+  - Hora formato estricto: HH:MM:SS:MS.
+  - Estado binario: 0 (tren en vía) / 1 (libre).
+  - Tensión en voltios (V).
+end note
+
+note bottom of TipoIncidencia
+  <b>Anomalías Consideradas (RF1.2, RF1.3, RF1.4)</b>
+  - Bloqueo prolongado: silencio > 2 min.
+  - Salto de frecuencia: variación >= 0.5 V.
+  <i>(Ambigüedad: magnitud física en voltios).</i>
+end note
+
+note bottom of Gestor
+  <b>Suscripciones (RF4, RF4.2)</b>
+  - Los gestores se suscriben a tipos de fallos.
+  - Gestión personal de suscripciones activas.
+end note
+
+@enduml

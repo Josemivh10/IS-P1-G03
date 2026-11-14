@@ -1,0 +1,190 @@
+@startuml
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam monochrome false
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam packageStyle rectangle
+
+skinparam class {
+    BackgroundColor #F8F9FA
+    BorderColor #2B2D42
+    ArrowColor #2B2D42
+    HeaderBackgroundColor #E9ECEF
+}
+
+skinparam package {
+    BackgroundColor #F1F3F5
+    BorderColor #ADB5BD
+    FontStyle bold
+}
+
+' ==============================================================================
+' VISTA COMPLEMENTARIA: DETALLE DE LA CAPA DE APLICACIÓN
+' Organización en 3 Bloques: Servicios (A), DTOs (B) y Puertos (C)
+' ==============================================================================
+package "Capa de Aplicacion" as Aplicacion <<Layer>> {
+
+    ' ==========================================================================
+    ' BLOQUE A: SERVICIOS DE APLICACIÓN (CASOS DE USO)
+    ' ==========================================================================
+    package "Bloque A: Servicios de Aplicacion (Casos de Uso)" as BloqueServicios {
+        class "ServicioAdquisicionDatos" as ServicioAdquisicionDatos <<Service>> {
+            - lectorCSV : ILectorCSV
+            + procesarFicheroCSV(rutaFichero : String, idDispositivo : String) : int
+        }
+
+        class "ServicioIncidencias" as ServicioIncidencias <<Service>> {
+            - moduloML : IModuloMachineLearning
+            + evaluarIncidenciasDispositivo(idDispositivo : String) : List<IncidenciaDTO>
+            + registrarIncidenciaManual(dto : PublicarIncidenciaDTO) : IncidenciaDTO
+            + obtenerIncidenciasDispositivo(idDispositivo : String) : List<IncidenciaDTO>
+        }
+
+        class "ServicioPrediccion" as ServicioPrediccion <<Service>> {
+            - moduloML : IModuloMachineLearning
+            + generarPredicciones(idDispositivo : String) : List<PrediccionIncidencia>
+        }
+
+        class "ServicioSuscripciones" as ServicioSuscripciones <<Service>> {
+            + suscribirGestor(idGestor : String, tipoIncidencia : String) : SuscripcionDTO
+            + cancelarSuscripcion(idSuscripcion : String) : void
+            + obtenerSuscripcionesGestor(idGestor : String) : List<SuscripcionDTO>
+        }
+
+        class "ServicioVisualizacion" as ServicioVisualizacion <<Service>> {
+            + prepararDatosMinuto(idDispositivo : String, minuto : String) : DatosGraficaMinuto
+        }
+    }
+
+    ' ==========================================================================
+    ' BLOQUE B: MODELOS DE TRANSFERENCIA DE DATOS (DTOs)
+    ' ==========================================================================
+    package "Bloque B: Modelos de Transferencia (DTOs)" as BloqueDTOs {
+        class "PublicarIncidenciaDTO" as PublicarIncidenciaDTO <<DTO>> {
+            - idUsuario : String
+            - idDispositivo : String
+            - tipoIncidencia : String
+            - descripcion : String
+            + getIdUsuario() : String
+            + getIdDispositivo() : String
+            + getTipoIncidencia() : String
+            + getDescripcion() : String
+        }
+
+        class "IncidenciaDTO" as IncidenciaDTO <<DTO>> {
+            - idIncidencia : String
+            - idDispositivo : String
+            - fechaHora : String
+            - tipo : String
+            - origen : String
+            - descripcion : String
+            + getIdIncidencia() : String
+            + getIdDispositivo() : String
+            + getFechaHora() : String
+            + getTipo() : String
+            + getOrigen() : String
+            + getDescripcion() : String
+        }
+
+        class "SuscripcionDTO" as SuscripcionDTO <<DTO>> {
+            - idSuscripcion : String
+            - idGestor : String
+            - tipoIncidencia : String
+            - fechaAlta : String
+            + getIdSuscripcion() : String
+            + getIdGestor() : String
+            + getTipoIncidencia() : String
+            + getFechaAlta() : String
+        }
+
+        class "IncidenciaGraficaDTO" as IncidenciaGraficaDTO <<DTO>> {
+            - hora : String
+            - tipo : String
+            - esPrediccion : boolean
+            - probabilidad : double
+            - descripcion : String
+            + getHora() : String
+            + getTipo() : String
+            + esPrediccion() : boolean
+            + getProbabilidad() : double
+            + getDescripcion() : String
+        }
+
+        class "DatosGraficaMinuto" as DatosGraficaMinuto <<DTO>> {
+            - minutoReferencia : String
+            - marcasTiempo : List<String>
+            - estadosOcupacion : List<int>
+            - valoresVoltaje : List<double>
+            - incidenciasVisualizacion : List<IncidenciaGraficaDTO>
+            + getMinutoReferencia() : String
+            + getMarcasTiempo() : List<String>
+            + getEstadosOcupacion() : List<int>
+            + getValoresVoltaje() : List<double>
+            + getIncidenciasVisualizacion() : List<IncidenciaGraficaDTO>
+        }
+    }
+
+    ' ==========================================================================
+    ' BLOQUE C: PUERTOS / INTERFACES TÉCNICAS
+    ' ==========================================================================
+    package "Bloque C: Puertos / Interfaces" as BloquePuertos {
+        interface "IModuloMachineLearning" as IModuloMachineLearning <<Port>> {
+            + detectarIncidencias(mediciones : List<MedicionElectrica>) : List<Incidencia>
+            + predecirIncidencias(historico : List<MedicionElectrica>) : List<PrediccionIncidencia>
+        }
+
+        interface "ILectorCSV" as ILectorCSV <<Port>> {
+            + leerMediciones(rutaFichero : String) : List<MedicionElectrica>
+        }
+    }
+}
+
+' ==============================================================================
+' REFERENCIAS DEL DOMINIO PARA CONTEXTO
+' ==============================================================================
+package "Referencias de Dominio" as DominioRef <<External>> {
+    class "DispositivoVia" as DispositivoVia <<Entity>>
+    class "PrediccionIncidencia" as PrediccionIncidencia <<Entity>>
+    class "Incidencia" as Incidencia <<Entity>>
+    class "Gestor" as Gestor <<Entity>>
+}
+
+' ==============================================================================
+' RELACIONES ENTRE ELEMENTOS DE APLICACIÓN
+' ==============================================================================
+DatosGraficaMinuto *-- "0..*" IncidenciaGraficaDTO : compone >
+
+' Bloque A (Servicios) -> Bloque C (Puertos)
+ServicioAdquisicionDatos --> ILectorCSV : usa puerto >
+ServicioIncidencias --> IModuloMachineLearning : usa puerto >
+ServicioPrediccion --> IModuloMachineLearning : usa puerto >
+
+' Bloque A (Servicios) -> Bloque B (DTOs)
+ServicioIncidencias ..> PublicarIncidenciaDTO : recibe >
+ServicioIncidencias ..> IncidenciaDTO : genera >
+ServicioSuscripciones ..> SuscripcionDTO : genera >
+
+' Orquestación de ServicioVisualizacion (Incidencias, Predicciones y DTOs)
+ServicioVisualizacion ..> ServicioIncidencias : consulta incidencias >
+ServicioVisualizacion ..> ServicioPrediccion : consulta predicciones >
+ServicioVisualizacion ..> IncidenciaGraficaDTO : transforma a >
+ServicioVisualizacion ..> DatosGraficaMinuto : construye y retorna >
+
+' Bloque A (Servicios) -> Referencias de Dominio
+ServicioAdquisicionDatos ..> DispositivoVia : actualiza >
+ServicioIncidencias ..> DispositivoVia : consulta >
+ServicioIncidencias ..> Incidencia : crea >
+ServicioPrediccion ..> DispositivoVia : consulta >
+ServicioPrediccion ..> PrediccionIncidencia : genera >
+ServicioSuscripciones ..> Gestor : gestiona >
+ServicioVisualizacion ..> DispositivoVia : consulta mediciones/estado >
+
+note bottom of BloqueServicios
+  <b>Pipeline de Preparacion Visual (RF5):</b>
+  1. ServicioVisualizacion consulta ServicioIncidencias y ServicioPrediccion.
+  2. Transforma Incidencia y PrediccionIncidencia en IncidenciaGraficaDTO.
+  3. Empaqueta series de voltajes, estados y fallos en DatosGraficaMinuto.
+end note
+
+@enduml
