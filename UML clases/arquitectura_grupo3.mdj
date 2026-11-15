@@ -1,0 +1,3981 @@
+{
+  "_type": "Project",
+  "_id": "AAAAAAG340e65af24bdebf9d",
+  "name": "Arquitectura_Grupo3",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "AAAAAAG9a0b2416504303731",
+      "_parent": {
+        "$ref": "AAAAAAG340e65af24bdebf9d"
+      },
+      "name": "SistemaFerroviario",
+      "ownedElements": [
+        {
+          "_type": "UMLPackage",
+          "_id": "AAAAAAGb965cf80775467fa0",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Presentacion",
+          "ownedElements": [
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAG6f63a5f8ab7065589",
+              "_parent": {
+                "$ref": "AAAAAAGb965cf80775467fa0"
+              },
+              "name": "Visualizacion REST",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG4bc79e8e34c5ff857",
+                  "_parent": {
+                    "$ref": "AAAAAAG6f63a5f8ab7065589"
+                  },
+                  "name": "VisualizacionController",
+                  "attributes": [],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG5d5f7a463f3f57db4",
+                      "_parent": {
+                        "$ref": "AAAAAAG4bc79e8e34c5ff857"
+                      },
+                      "name": "obtenerDatosGrafica",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGa6de4a5901981edea",
+                          "_parent": {
+                            "$ref": "AAAAAAG5d5f7a463f3f57db4"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG21603658cee642a7a",
+                          "_parent": {
+                            "$ref": "AAAAAAG5d5f7a463f3f57db4"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "DatosGraficaMinuto"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGdfe88ea3868522512",
+                      "_parent": {
+                        "$ref": "AAAAAAG4bc79e8e34c5ff857"
+                      },
+                      "name": "delega",
+                      "source": {
+                        "$ref": "AAAAAAG4bc79e8e34c5ff857"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAGd8d3dc97426b57f81",
+              "_parent": {
+                "$ref": "AAAAAAGb965cf80775467fa0"
+              },
+              "name": "Incidencias y Suscripciones REST",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAGc625eea2c1aa2fe60",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8d3dc97426b57f81"
+                  },
+                  "name": "IncidenciasController",
+                  "attributes": [],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGd1c7b551d31b5e780",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "cargarDatosCSV",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGe969a5bd525951650",
+                          "_parent": {
+                            "$ref": "AAAAAAGd1c7b551d31b5e780"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG6261aa3474cbe0de4",
+                          "_parent": {
+                            "$ref": "AAAAAAGd1c7b551d31b5e780"
+                          },
+                          "name": "rutaFichero",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG5a2dda2c948a38380",
+                          "_parent": {
+                            "$ref": "AAAAAAGd1c7b551d31b5e780"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "int"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG601032e67d4d9063c",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "procesarDispositivo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGc731c970faa864814",
+                          "_parent": {
+                            "$ref": "AAAAAAG601032e67d4d9063c"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG47317c00c05c1e08e",
+                          "_parent": {
+                            "$ref": "AAAAAAG601032e67d4d9063c"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "int"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG5970c36c2b8166696",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "publicarIncidencia",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGcff351a8b14bc2cca",
+                          "_parent": {
+                            "$ref": "AAAAAAG5970c36c2b8166696"
+                          },
+                          "name": "tipo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG8e3a22d866559abac",
+                          "_parent": {
+                            "$ref": "AAAAAAG5970c36c2b8166696"
+                          },
+                          "name": "descripcion",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGd6dd7157814f316b3",
+                          "_parent": {
+                            "$ref": "AAAAAAG5970c36c2b8166696"
+                          },
+                          "name": "idUsuario",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG056dca0c0e3aa1d7c",
+                          "_parent": {
+                            "$ref": "AAAAAAG5970c36c2b8166696"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGeb339bbf879d3f1b1",
+                          "_parent": {
+                            "$ref": "AAAAAAG5970c36c2b8166696"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGc1f7481a68bfcdad5",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "suscribirGestor",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG55e968208a282bcc8",
+                          "_parent": {
+                            "$ref": "AAAAAAGc1f7481a68bfcdad5"
+                          },
+                          "name": "idGestor",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG9ec4d2bb323dd2a71",
+                          "_parent": {
+                            "$ref": "AAAAAAGc1f7481a68bfcdad5"
+                          },
+                          "name": "tipoIncidencia",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG95a97e465ac750e61",
+                          "_parent": {
+                            "$ref": "AAAAAAGc1f7481a68bfcdad5"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGccb1bb21321389dab",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "delega",
+                      "source": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGaa5504a7848d7fbe4",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "delega",
+                      "source": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG2dda51175425954e0",
+                      "_parent": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "name": "delega",
+                      "source": {
+                        "$ref": "AAAAAAGc625eea2c1aa2fe60"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLDependency",
+              "_id": "AAAAAAG21bccfcd348201779",
+              "_parent": {
+                "$ref": "AAAAAAGb965cf80775467fa0"
+              },
+              "name": "invoca servicios",
+              "source": {
+                "$ref": "AAAAAAGb965cf80775467fa0"
+              },
+              "target": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackage",
+          "_id": "AAAAAAGd9baa3b8548117736",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Aplicacion",
+          "ownedElements": [
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAGb873a2c537525c34e",
+              "_parent": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "name": "Adquisicion de Datos",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG59f7707f3c861bd70",
+                  "_parent": {
+                    "$ref": "AAAAAAGb873a2c537525c34e"
+                  },
+                  "name": "ServicioAdquisicionDatos",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG5896b963a72890297",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "lectorCSV",
+                      "visibility": "private",
+                      "type": "ILectorCSV"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG6db59e5abd9bacd0a",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "procesarFicheroCSV",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2507c111ed2d5a60b",
+                          "_parent": {
+                            "$ref": "AAAAAAG6db59e5abd9bacd0a"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGf6531e0a317e420df",
+                          "_parent": {
+                            "$ref": "AAAAAAG6db59e5abd9bacd0a"
+                          },
+                          "name": "rutaFichero",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGeb86cd12b7806d1b5",
+                          "_parent": {
+                            "$ref": "AAAAAAG6db59e5abd9bacd0a"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "int"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG1ecb6e1037c2f01cf",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "asociarMediciones",
+                      "visibility": "private",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG113e0e78e299ec4c9",
+                          "_parent": {
+                            "$ref": "AAAAAAG1ecb6e1037c2f01cf"
+                          },
+                          "name": "dispositivo",
+                          "type": "DispositivoVia"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG13dd97aa06b29d4e9",
+                          "_parent": {
+                            "$ref": "AAAAAAG1ecb6e1037c2f01cf"
+                          },
+                          "name": "mediciones",
+                          "type": "List<MedicionElectrica>"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGa04cd8ea9b2f5775f",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "utiliza",
+                      "source": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGda569a5912af0836c"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG6019a501432cf34eb",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "busca dispositivo",
+                      "source": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG3b0f945318cbdf4a8",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "asocia mediciones",
+                      "source": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG63f757dd3a44be05d",
+                      "_parent": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "name": "crea",
+                      "source": {
+                        "$ref": "AAAAAAG59f7707f3c861bd70"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLInterface",
+                  "_id": "AAAAAAGda569a5912af0836c",
+                  "_parent": {
+                    "$ref": "AAAAAAGb873a2c537525c34e"
+                  },
+                  "name": "ILectorCSV",
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG059f03982b6bd4d33",
+                      "_parent": {
+                        "$ref": "AAAAAAGda569a5912af0836c"
+                      },
+                      "name": "leerMediciones",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1d200be3712e9913e",
+                          "_parent": {
+                            "$ref": "AAAAAAG059f03982b6bd4d33"
+                          },
+                          "name": "rutaFichero",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGb53a63c6b6a360352",
+                          "_parent": {
+                            "$ref": "AAAAAAG059f03982b6bd4d33"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<MedicionElectrica>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAG7b887d1ff57152ef7",
+              "_parent": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "name": "Deteccion y Prediccion",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG0c83e99b3a9af53fa",
+                  "_parent": {
+                    "$ref": "AAAAAAG7b887d1ff57152ef7"
+                  },
+                  "name": "ServicioIncidencias",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG8f61d3475a7f1a2d0",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "moduloML",
+                      "visibility": "private",
+                      "type": "IModuloMachineLearning"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG3df672bd71ed48460",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "procesarDispositivo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG95490e078b7bd3912",
+                          "_parent": {
+                            "$ref": "AAAAAAG3df672bd71ed48460"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG5d8f206809d2169d4",
+                          "_parent": {
+                            "$ref": "AAAAAAG3df672bd71ed48460"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "int"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG2042d0963fd5aab21",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "evaluarIncidencias",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG79ccb58257be8eb61",
+                          "_parent": {
+                            "$ref": "AAAAAAG2042d0963fd5aab21"
+                          },
+                          "name": "dispositivo",
+                          "type": "DispositivoVia"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG8b528d91141fe1cb8",
+                          "_parent": {
+                            "$ref": "AAAAAAG2042d0963fd5aab21"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<Incidencia>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGcf8bafacce9a21f3f",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "generarPredicciones",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG66429bba1f2819aa6",
+                          "_parent": {
+                            "$ref": "AAAAAAGcf8bafacce9a21f3f"
+                          },
+                          "name": "dispositivo",
+                          "type": "DispositivoVia"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGcc1c823f4c6511ed4",
+                          "_parent": {
+                            "$ref": "AAAAAAGcf8bafacce9a21f3f"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<PrediccionIncidencia>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG1b9b3e5a1fe9d31f3",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "publicarIncidenciaManual",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1093978b68a37f2aa",
+                          "_parent": {
+                            "$ref": "AAAAAAG1b9b3e5a1fe9d31f3"
+                          },
+                          "name": "tipo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGefbe97af23e6374e8",
+                          "_parent": {
+                            "$ref": "AAAAAAG1b9b3e5a1fe9d31f3"
+                          },
+                          "name": "descripcion",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG81cdc5edfc1ade485",
+                          "_parent": {
+                            "$ref": "AAAAAAG1b9b3e5a1fe9d31f3"
+                          },
+                          "name": "idUsuario",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2ded248338b2b5462",
+                          "_parent": {
+                            "$ref": "AAAAAAG1b9b3e5a1fe9d31f3"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1aee2a83d4d1def2b",
+                          "_parent": {
+                            "$ref": "AAAAAAG1b9b3e5a1fe9d31f3"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGc40bff6b47fc9162e",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "utiliza",
+                      "source": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG4a9aa7e96e690be04"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG12bea7d1b10e32880",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "busca dispositivo",
+                      "source": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGe3e8bb90a1eb8d7aa",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "registra incidencias",
+                      "source": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGa0ab26326ce890fff",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "crea",
+                      "source": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG735a045aa1bc00695",
+                      "_parent": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "name": "crea",
+                      "source": {
+                        "$ref": "AAAAAAG0c83e99b3a9af53fa"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLInterface",
+                  "_id": "AAAAAAG4a9aa7e96e690be04",
+                  "_parent": {
+                    "$ref": "AAAAAAG7b887d1ff57152ef7"
+                  },
+                  "name": "IModuloMachineLearning",
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGa8338c1b42837b6d8",
+                      "_parent": {
+                        "$ref": "AAAAAAG4a9aa7e96e690be04"
+                      },
+                      "name": "detectarIncidencias",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG89a5c004e591317d2",
+                          "_parent": {
+                            "$ref": "AAAAAAGa8338c1b42837b6d8"
+                          },
+                          "name": "mediciones",
+                          "type": "List<MedicionElectrica>"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG6eac4be5315819b90",
+                          "_parent": {
+                            "$ref": "AAAAAAGa8338c1b42837b6d8"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<Incidencia>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG75061113d5779d1f0",
+                      "_parent": {
+                        "$ref": "AAAAAAG4a9aa7e96e690be04"
+                      },
+                      "name": "predecirIncidencias",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGc0c7e1a8fe4052f26",
+                          "_parent": {
+                            "$ref": "AAAAAAG75061113d5779d1f0"
+                          },
+                          "name": "mediciones",
+                          "type": "List<MedicionElectrica>"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG4464e66e6fdd6c8d9",
+                          "_parent": {
+                            "$ref": "AAAAAAG75061113d5779d1f0"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<PrediccionIncidencia>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAGacb683b9235b6d465",
+              "_parent": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "name": "Gestion de Suscripciones",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG2823fa534476bac82",
+                  "_parent": {
+                    "$ref": "AAAAAAGacb683b9235b6d465"
+                  },
+                  "name": "ServicioSuscripciones",
+                  "attributes": [],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG737bac77d16f7e321",
+                      "_parent": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "name": "registrarSuscripcion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG8e552b4ff0fdd68a9",
+                          "_parent": {
+                            "$ref": "AAAAAAG737bac77d16f7e321"
+                          },
+                          "name": "idGestor",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1c6b0a4df5b66b4ac",
+                          "_parent": {
+                            "$ref": "AAAAAAG737bac77d16f7e321"
+                          },
+                          "name": "tipoIncidencia",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG3a5e112e81fcddb86",
+                          "_parent": {
+                            "$ref": "AAAAAAG737bac77d16f7e321"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG786128f027892243c",
+                      "_parent": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "name": "cancelarSuscripcion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGf18c8d67953a7e857",
+                          "_parent": {
+                            "$ref": "AAAAAAG786128f027892243c"
+                          },
+                          "name": "idSuscripcion",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG047d3395c269f687c",
+                          "_parent": {
+                            "$ref": "AAAAAAG786128f027892243c"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG46a2e70301da6b9df",
+                      "_parent": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "name": "consultarSuscripcionesPorTipo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG44f7c524827c066df",
+                          "_parent": {
+                            "$ref": "AAAAAAG46a2e70301da6b9df"
+                          },
+                          "name": "tipo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG6877ada0abb902e12",
+                          "_parent": {
+                            "$ref": "AAAAAAG46a2e70301da6b9df"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<Suscripcion>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG81d1d67f69baf0041",
+                      "_parent": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "name": "consultarSuscripcionesPorGestor",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGc5076e1b79871a16c",
+                          "_parent": {
+                            "$ref": "AAAAAAG81d1d67f69baf0041"
+                          },
+                          "name": "idGestor",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG3f37c871fe4e34082",
+                          "_parent": {
+                            "$ref": "AAAAAAG81d1d67f69baf0041"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<Suscripcion>"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAG137a1ffde576c93db",
+                      "_parent": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "name": "gestiona",
+                      "source": {
+                        "$ref": "AAAAAAG2823fa534476bac82"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAGe96a653db57d01c29",
+              "_parent": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "name": "Visualizacion Grafica",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAGcabeb1b50d72d4318",
+                  "_parent": {
+                    "$ref": "AAAAAAGe96a653db57d01c29"
+                  },
+                  "name": "ServicioVisualizacion",
+                  "attributes": [],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGe7ede2a83a2c37d64",
+                      "_parent": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "name": "generarDatosGraficaMinuto",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGba6e37fbd8923a717",
+                          "_parent": {
+                            "$ref": "AAAAAAGe7ede2a83a2c37d64"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGa53ba2f643bbaade5",
+                          "_parent": {
+                            "$ref": "AAAAAAGe7ede2a83a2c37d64"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "DatosGraficaMinuto"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGe7b0403ed99f2922a",
+                      "_parent": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "name": "busca dispositivo",
+                      "source": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGaeed59208b1b9986b",
+                      "_parent": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "name": "consulta datos",
+                      "source": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      }
+                    },
+                    {
+                      "_type": "UMLDependency",
+                      "_id": "AAAAAAGd2cf64072fbb85501",
+                      "_parent": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "name": "construye",
+                      "source": {
+                        "$ref": "AAAAAAGcabeb1b50d72d4318"
+                      },
+                      "target": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLDataType",
+                  "_id": "AAAAAAG2f65a17cf5dad586b",
+                  "_parent": {
+                    "$ref": "AAAAAAGe96a653db57d01c29"
+                  },
+                  "name": "DatosGraficaMinuto",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG8b26698bdf62bd16e",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "minutoReferencia",
+                      "type": "String",
+                      "visibility": "public"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGbc27d8af1dfea4924",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "voltajes",
+                      "type": "List<Double>",
+                      "visibility": "public"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGabda143f990533781",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "estadosOcupacion",
+                      "type": "List<EstadoOcupacion>",
+                      "visibility": "public"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG87522cc8b85f83914",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "horas",
+                      "type": "List<String>",
+                      "visibility": "public"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGaa71cb52157138651",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "incidencias",
+                      "type": "List<Incidencia>",
+                      "visibility": "public"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGa228a1910d87f0491",
+                      "_parent": {
+                        "$ref": "AAAAAAG2f65a17cf5dad586b"
+                      },
+                      "name": "predicciones",
+                      "type": "List<PrediccionIncidencia>",
+                      "visibility": "public"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLDependency",
+              "_id": "AAAAAAGefdf8c7ddada257f1",
+              "_parent": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "name": "manipula dominio",
+              "source": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "target": {
+                "$ref": "AAAAAAGe4c65a3a92484027b"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackage",
+          "_id": "AAAAAAGe4c65a3a92484027b",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Dominio",
+          "ownedElements": [
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAG994378b5019859d35",
+              "_parent": {
+                "$ref": "AAAAAAGe4c65a3a92484027b"
+              },
+              "name": "Gestion de Dispositivos",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAGa13480e9d261c3063",
+                  "_parent": {
+                    "$ref": "AAAAAAG994378b5019859d35"
+                  },
+                  "name": "ViaFerroviaria",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG2e67632f4d730ad4e",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "idVia",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGdf17367d1e98bab44",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "nombre",
+                      "visibility": "private",
+                      "type": "String"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG4055d48c28770a744",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "agregarDispositivo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2ba07b6d726396b3e",
+                          "_parent": {
+                            "$ref": "AAAAAAG4055d48c28770a744"
+                          },
+                          "name": "dispositivo",
+                          "type": "DispositivoVia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG9f633abb8bce5bfe5",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "buscarDispositivo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG4098116d368caf481",
+                          "_parent": {
+                            "$ref": "AAAAAAG9f633abb8bce5bfe5"
+                          },
+                          "name": "idDispositivo",
+                          "type": "String"
+                        },
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG624b0e09d60ad511a",
+                          "_parent": {
+                            "$ref": "AAAAAAG9f633abb8bce5bfe5"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "DispositivoVia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG12d1bfc06d7ce2d78",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "obtenerDispositivos",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGa15e0623b37510873",
+                          "_parent": {
+                            "$ref": "AAAAAAG12d1bfc06d7ce2d78"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<DispositivoVia>"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG92fe28c66e7e318ff",
+                      "_parent": {
+                        "$ref": "AAAAAAGa13480e9d261c3063"
+                      },
+                      "name": "contiene",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG21ec844e6eb4aa6ed",
+                        "_parent": {
+                          "$ref": "AAAAAAG92fe28c66e7e318ff"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGa13480e9d261c3063"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "composite"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG38544c41554e6a0e7",
+                        "_parent": {
+                          "$ref": "AAAAAAG92fe28c66e7e318ff"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG8ad259ae5123ff598"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG8ad259ae5123ff598",
+                  "_parent": {
+                    "$ref": "AAAAAAG994378b5019859d35"
+                  },
+                  "name": "DispositivoVia",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG989d858b59c02ed1c",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "idDispositivo",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGd4a6717c64a70fc18",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "posicionMetros",
+                      "visibility": "private",
+                      "type": "int"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGbe55d70660a2900a7",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "agregarMedicion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGada42f54f0c768f57",
+                          "_parent": {
+                            "$ref": "AAAAAAGbe55d70660a2900a7"
+                          },
+                          "name": "medicion",
+                          "type": "MedicionElectrica"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG91aa1980226dfab06",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "registrarIncidencia",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1fe6329d9f21ef7f0",
+                          "_parent": {
+                            "$ref": "AAAAAAG91aa1980226dfab06"
+                          },
+                          "name": "incidencia",
+                          "type": "Incidencia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG077c3834a349c8261",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "registrarPrediccion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2c97131dabe09d3f2",
+                          "_parent": {
+                            "$ref": "AAAAAAG077c3834a349c8261"
+                          },
+                          "name": "prediccion",
+                          "type": "PrediccionIncidencia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG175a9627ac0a09a63",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "obtenerMediciones",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2560444e6e7399ebc",
+                          "_parent": {
+                            "$ref": "AAAAAAG175a9627ac0a09a63"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<MedicionElectrica>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG94ad49705f1f68d38",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "obtenerIncidencias",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG1cc5078956f1095ea",
+                          "_parent": {
+                            "$ref": "AAAAAAG94ad49705f1f68d38"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<Incidencia>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG9ac494119c8e6c06d",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "obtenerPredicciones",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG2aeccbbf749bb7ff6",
+                          "_parent": {
+                            "$ref": "AAAAAAG9ac494119c8e6c06d"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "List<PrediccionIncidencia>"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG46422b61bf4716553",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "getIdDispositivo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGcbfda49a0ba8e676f",
+                          "_parent": {
+                            "$ref": "AAAAAAG46422b61bf4716553"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG3ef4e0b97cd8e43e7",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "getPosicionMetros",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG702729095a0bacaa7",
+                          "_parent": {
+                            "$ref": "AAAAAAG3ef4e0b97cd8e43e7"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "int"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG725755640e501b28d",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "registra",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG7ebf6d7e8447db1b6",
+                        "_parent": {
+                          "$ref": "AAAAAAG725755640e501b28d"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG8ad259ae5123ff598"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "composite"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG5f94cc917e15ecec2",
+                        "_parent": {
+                          "$ref": "AAAAAAG725755640e501b28d"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGfba221cf9d6a0e458"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      }
+                    },
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG91bb443124aba7697",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "asocia",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG7a5305a8d0f62d02b",
+                        "_parent": {
+                          "$ref": "AAAAAAG91bb443124aba7697"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG8ad259ae5123ff598"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "shared"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG2ff9d0a799759b6d1",
+                        "_parent": {
+                          "$ref": "AAAAAAG91bb443124aba7697"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG6bf63c8ef583fa138"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      }
+                    },
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAGa7f1977e1ee0453c2",
+                      "_parent": {
+                        "$ref": "AAAAAAG8ad259ae5123ff598"
+                      },
+                      "name": "asocia",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG17d2408b33d24588c",
+                        "_parent": {
+                          "$ref": "AAAAAAGa7f1977e1ee0453c2"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG8ad259ae5123ff598"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "shared"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG049a98d7603e6c52c",
+                        "_parent": {
+                          "$ref": "AAAAAAGa7f1977e1ee0453c2"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGf60f4de7a56264b72"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAGfba221cf9d6a0e458",
+                  "_parent": {
+                    "$ref": "AAAAAAG994378b5019859d35"
+                  },
+                  "name": "MedicionElectrica",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG7494646204d3cc2e9",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "hora",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG3c2ee88432564f134",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "voltaje",
+                      "visibility": "private",
+                      "type": "double"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGbd92f6302f47c73f0",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "estado",
+                      "visibility": "private",
+                      "type": "EstadoOcupacion"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG7a172b01894877dfc",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "getHora",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG352538dc1e88b9ba2",
+                          "_parent": {
+                            "$ref": "AAAAAAG7a172b01894877dfc"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG218061b1c661c9f97",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "getVoltaje",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGfda10351ae9607f56",
+                          "_parent": {
+                            "$ref": "AAAAAAG218061b1c661c9f97"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "double"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG7c772b160af7499a6",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "getEstado",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG73c74982e9c4c12fa",
+                          "_parent": {
+                            "$ref": "AAAAAAG7c772b160af7499a6"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "EstadoOcupacion"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG4b04646aeebd20bf5",
+                      "_parent": {
+                        "$ref": "AAAAAAGfba221cf9d6a0e458"
+                      },
+                      "name": "clasifica",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG725cc397510462fe1",
+                        "_parent": {
+                          "$ref": "AAAAAAG4b04646aeebd20bf5"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGfba221cf9d6a0e458"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG9e7ddd1e942b44f6a",
+                        "_parent": {
+                          "$ref": "AAAAAAG4b04646aeebd20bf5"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG1a2dc48d64304ff6a"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLEnumeration",
+                  "_id": "AAAAAAG1a2dc48d64304ff6a",
+                  "_parent": {
+                    "$ref": "AAAAAAG994378b5019859d35"
+                  },
+                  "name": "EstadoOcupacion",
+                  "literals": [
+                    {
+                      "_type": "UMLEnumerationLiteral",
+                      "_id": "AAAAAAG6cdc8ddbf2a119a84",
+                      "_parent": {
+                        "$ref": "AAAAAAG1a2dc48d64304ff6a"
+                      },
+                      "name": "OCUPADO"
+                    },
+                    {
+                      "_type": "UMLEnumerationLiteral",
+                      "_id": "AAAAAAGce08eee66e558871d",
+                      "_parent": {
+                        "$ref": "AAAAAAG1a2dc48d64304ff6a"
+                      },
+                      "name": "LIBRE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAGeaea58004d19fa5fe",
+              "_parent": {
+                "$ref": "AAAAAAGe4c65a3a92484027b"
+              },
+              "name": "Incidencias y Predicciones",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG6bf63c8ef583fa138",
+                  "_parent": {
+                    "$ref": "AAAAAAGeaea58004d19fa5fe"
+                  },
+                  "name": "Incidencia",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG8739d270fae007a79",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "idIncidencia",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGd01879f9d4a36d336",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "tipo",
+                      "visibility": "private",
+                      "type": "TipoIncidencia"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG071928e653431172e",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "timestamp",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGaa059f643936dd19b",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "descripcion",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG23cd6c5331c50f5c6",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "idUsuarioPublicador",
+                      "visibility": "private",
+                      "type": "String"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG0825a2c8d7b944be6",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "esPublicacionManual",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG84fb7ec2ce57b1697",
+                          "_parent": {
+                            "$ref": "AAAAAAG0825a2c8d7b944be6"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGfc893a848edd55976",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "getIdIncidencia",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG5d98fd45969844408",
+                          "_parent": {
+                            "$ref": "AAAAAAGfc893a848edd55976"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG9cc2bffc6fec78a8c",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "getTipo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGb77dbde10034602dc",
+                          "_parent": {
+                            "$ref": "AAAAAAG9cc2bffc6fec78a8c"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "TipoIncidencia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG2be121098d283d631",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "getTimestamp",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG9f8300d80c67e8b36",
+                          "_parent": {
+                            "$ref": "AAAAAAG2be121098d283d631"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGde8c8197b790d8db0",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "getDescripcion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG0fe69ca3ded2af9a6",
+                          "_parent": {
+                            "$ref": "AAAAAAGde8c8197b790d8db0"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG06ae637a0f5a9d82f",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "getIdUsuarioPublicador",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGb164a9ebf70611541",
+                          "_parent": {
+                            "$ref": "AAAAAAG06ae637a0f5a9d82f"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG430083b3b16d48d80",
+                      "_parent": {
+                        "$ref": "AAAAAAG6bf63c8ef583fa138"
+                      },
+                      "name": "clasifica",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAGc2d4c462213592802",
+                        "_parent": {
+                          "$ref": "AAAAAAG430083b3b16d48d80"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG6bf63c8ef583fa138"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAGf4bc5d513dbc552b2",
+                        "_parent": {
+                          "$ref": "AAAAAAG430083b3b16d48d80"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGb9b83a867daad9e25"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAGf60f4de7a56264b72",
+                  "_parent": {
+                    "$ref": "AAAAAAGeaea58004d19fa5fe"
+                  },
+                  "name": "PrediccionIncidencia",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG34ded264e93e4061f",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "idPrediccion",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGb1380573f2d6be1db",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "tipo",
+                      "visibility": "private",
+                      "type": "TipoIncidencia"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG0533a30a71834c539",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "timestampPrediccion",
+                      "visibility": "private",
+                      "type": "String"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG40f8bd552f09b9b49",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "getIdPrediccion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG821007502e511b7ad",
+                          "_parent": {
+                            "$ref": "AAAAAAG40f8bd552f09b9b49"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG9d0c7bbe349e80d38",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "getTipo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG90d0e6e335a529a56",
+                          "_parent": {
+                            "$ref": "AAAAAAG9d0c7bbe349e80d38"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "TipoIncidencia"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG681c0622c8065bb0f",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "getTimestampPrediccion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGea5d7f1d61cb64f5c",
+                          "_parent": {
+                            "$ref": "AAAAAAG681c0622c8065bb0f"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG6371d537d67b99dee",
+                      "_parent": {
+                        "$ref": "AAAAAAGf60f4de7a56264b72"
+                      },
+                      "name": "clasifica",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG7e8d0061f6fca5786",
+                        "_parent": {
+                          "$ref": "AAAAAAG6371d537d67b99dee"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGf60f4de7a56264b72"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG8eac609bbfba9147f",
+                        "_parent": {
+                          "$ref": "AAAAAAG6371d537d67b99dee"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGb9b83a867daad9e25"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "_type": "UMLEnumeration",
+                  "_id": "AAAAAAGb9b83a867daad9e25",
+                  "_parent": {
+                    "$ref": "AAAAAAGeaea58004d19fa5fe"
+                  },
+                  "name": "TipoIncidencia",
+                  "literals": [
+                    {
+                      "_type": "UMLEnumerationLiteral",
+                      "_id": "AAAAAAGb290f19928f729f39",
+                      "_parent": {
+                        "$ref": "AAAAAAGb9b83a867daad9e25"
+                      },
+                      "name": "BLOQUEO_PROLONGADO"
+                    },
+                    {
+                      "_type": "UMLEnumerationLiteral",
+                      "_id": "AAAAAAG98312ce93f6fcc174",
+                      "_parent": {
+                        "$ref": "AAAAAAGb9b83a867daad9e25"
+                      },
+                      "name": "SALTO_FRECUENCIA"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "UMLPackage",
+              "_id": "AAAAAAG16ad561e3c5a8a192",
+              "_parent": {
+                "$ref": "AAAAAAGe4c65a3a92484027b"
+              },
+              "name": "Suscripciones",
+              "ownedElements": [
+                {
+                  "_type": "UMLClass",
+                  "_id": "AAAAAAG4b5e751d7b804089c",
+                  "_parent": {
+                    "$ref": "AAAAAAG16ad561e3c5a8a192"
+                  },
+                  "name": "Suscripcion",
+                  "attributes": [
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAGd871c9975ea3db598",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "idSuscripcion",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG3937229d51e14d6f7",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "idGestor",
+                      "visibility": "private",
+                      "type": "String"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG485d4633613d46775",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "tipo",
+                      "visibility": "private",
+                      "type": "TipoIncidencia"
+                    },
+                    {
+                      "_type": "UMLAttribute",
+                      "_id": "AAAAAAG6384616950b9bd687",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "activa",
+                      "visibility": "private",
+                      "type": "boolean"
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG63f801ce45952dee6",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "activar",
+                      "visibility": "public",
+                      "parameters": []
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAGd55191c72f43d56a8",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "desactivar",
+                      "visibility": "public",
+                      "parameters": []
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG125c90ad6eee1ece9",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "isActiva",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG170bd45a250bca3cb",
+                          "_parent": {
+                            "$ref": "AAAAAAG125c90ad6eee1ece9"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG7cf505fe38c5e0a89",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "getIdSuscripcion",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGd9d4d17ae685756c5",
+                          "_parent": {
+                            "$ref": "AAAAAAG7cf505fe38c5e0a89"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG7ff1c6a9083ece441",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "getIdGestor",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAG028cdd2cc74bd5c99",
+                          "_parent": {
+                            "$ref": "AAAAAAG7ff1c6a9083ece441"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "_type": "UMLOperation",
+                      "_id": "AAAAAAG4e0de71135e63ade3",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "getTipo",
+                      "visibility": "public",
+                      "parameters": [
+                        {
+                          "_type": "UMLParameter",
+                          "_id": "AAAAAAGffc6d3a0b93824c8f",
+                          "_parent": {
+                            "$ref": "AAAAAAG4e0de71135e63ade3"
+                          },
+                          "name": "return",
+                          "direction": "return",
+                          "type": "TipoIncidencia"
+                        }
+                      ]
+                    }
+                  ],
+                  "ownedElements": [
+                    {
+                      "_type": "UMLAssociation",
+                      "_id": "AAAAAAG2bea7943a48fb8405",
+                      "_parent": {
+                        "$ref": "AAAAAAG4b5e751d7b804089c"
+                      },
+                      "name": "clasifica",
+                      "end1": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG48722dbc8557dfca8",
+                        "_parent": {
+                          "$ref": "AAAAAAG2bea7943a48fb8405"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAG4b5e751d7b804089c"
+                        },
+                        "multiplicity": "0..*",
+                        "aggregation": "none"
+                      },
+                      "end2": {
+                        "_type": "UMLAssociationEnd",
+                        "_id": "AAAAAAG8bcc73d60a7b80118",
+                        "_parent": {
+                          "$ref": "AAAAAAG2bea7943a48fb8405"
+                        },
+                        "reference": {
+                          "$ref": "AAAAAAGb9b83a867daad9e25"
+                        },
+                        "multiplicity": "1",
+                        "aggregation": "none"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackage",
+          "_id": "AAAAAAG1938ffc928c8bd82a",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Infraestructura",
+          "ownedElements": [
+            {
+              "_type": "UMLComponent",
+              "_id": "AAAAAAG2e73dcf92270b6471",
+              "_parent": {
+                "$ref": "AAAAAAG1938ffc928c8bd82a"
+              },
+              "name": "AdaptadorLecturaCSV",
+              "ownedElements": [
+                {
+                  "_type": "UMLInterfaceRealization",
+                  "_id": "AAAAAAG450ad517e53af704b",
+                  "_parent": {
+                    "$ref": "AAAAAAG2e73dcf92270b6471"
+                  },
+                  "source": {
+                    "$ref": "AAAAAAG2e73dcf92270b6471"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAGda569a5912af0836c"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLComponent",
+              "_id": "AAAAAAGb2a9efa6b5865ecd3",
+              "_parent": {
+                "$ref": "AAAAAAG1938ffc928c8bd82a"
+              },
+              "name": "ComponenteMachineLearning",
+              "ownedElements": [
+                {
+                  "_type": "UMLInterfaceRealization",
+                  "_id": "AAAAAAGb0cbd4567caba8c90",
+                  "_parent": {
+                    "$ref": "AAAAAAGb2a9efa6b5865ecd3"
+                  },
+                  "source": {
+                    "$ref": "AAAAAAGb2a9efa6b5865ecd3"
+                  },
+                  "target": {
+                    "$ref": "AAAAAAG4a9aa7e96e690be04"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "AAAAAAG7a9f9d6eb0fa5d8f7",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Usuario",
+          "ownedElements": [
+            {
+              "_type": "UMLDependency",
+              "_id": "AAAAAAG51eba0d8bdb7cea6f",
+              "_parent": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              },
+              "name": "consulta grafica",
+              "source": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              },
+              "target": {
+                "$ref": "AAAAAAG4bc79e8e34c5ff857"
+              }
+            },
+            {
+              "_type": "UMLDependency",
+              "_id": "AAAAAAGf43375027aaf88024",
+              "_parent": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              },
+              "name": "carga CSV / publica",
+              "source": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              },
+              "target": {
+                "$ref": "AAAAAAGc625eea2c1aa2fe60"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLActor",
+          "_id": "AAAAAAG7048e924afc2d6fea",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "Gestor",
+          "ownedElements": [
+            {
+              "_type": "UMLDependency",
+              "_id": "AAAAAAGbad4903c3d548bf22",
+              "_parent": {
+                "$ref": "AAAAAAG7048e924afc2d6fea"
+              },
+              "name": "suscribe gestor",
+              "source": {
+                "$ref": "AAAAAAG7048e924afc2d6fea"
+              },
+              "target": {
+                "$ref": "AAAAAAGc625eea2c1aa2fe60"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackageDiagram",
+          "_id": "AAAAAAG5871d53a4fad6decd",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "diagrama_paquetes",
+          "ownedViews": [
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG27e141018040ae12c",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGb965cf80775467fa0"
+              },
+              "left": 60,
+              "top": 60,
+              "width": 600,
+              "height": 200
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG2cbfe886ad912f758",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG6f63a5f8ab7065589"
+              },
+              "left": 80,
+              "top": 100,
+              "width": 240,
+              "height": 140
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAGb92fc7ffc32364837",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGd8d3dc97426b57f81"
+              },
+              "left": 360,
+              "top": 100,
+              "width": 280,
+              "height": 140
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG135504837566923eb",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGd9baa3b8548117736"
+              },
+              "left": 60,
+              "top": 300,
+              "width": 1200,
+              "height": 240
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAGad0321b64e0c06ef1",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGb873a2c537525c34e"
+              },
+              "left": 80,
+              "top": 350,
+              "width": 260,
+              "height": 160
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG487665b1517de1342",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG7b887d1ff57152ef7"
+              },
+              "left": 380,
+              "top": 350,
+              "width": 280,
+              "height": 160
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG5fc1db4426c6dd192",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGacb683b9235b6d465"
+              },
+              "left": 700,
+              "top": 350,
+              "width": 240,
+              "height": 160
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG081a3204d5ccff41b",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGe96a653db57d01c29"
+              },
+              "left": 980,
+              "top": 350,
+              "width": 260,
+              "height": 160
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG6fcaab58196e64bca",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGe4c65a3a92484027b"
+              },
+              "left": 60,
+              "top": 580,
+              "width": 1200,
+              "height": 260
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG69df68a01da58f8ff",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG994378b5019859d35"
+              },
+              "left": 80,
+              "top": 630,
+              "width": 340,
+              "height": 180
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAGba49f3950900af7b1",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGeaea58004d19fa5fe"
+              },
+              "left": 460,
+              "top": 630,
+              "width": 340,
+              "height": 180
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAGdacb6385737ae351f",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG16ad561e3c5a8a192"
+              },
+              "left": 840,
+              "top": 630,
+              "width": 280,
+              "height": 180
+            },
+            {
+              "_type": "UMLPackageView",
+              "_id": "AAAAAAG589850a3848754290",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG1938ffc928c8bd82a"
+              },
+              "left": 60,
+              "top": 880,
+              "width": 600,
+              "height": 160
+            },
+            {
+              "_type": "UMLComponentView",
+              "_id": "AAAAAAGbffbc1d146a22638b",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAG2e73dcf92270b6471"
+              },
+              "left": 80,
+              "top": 930,
+              "width": 240,
+              "height": 80
+            },
+            {
+              "_type": "UMLComponentView",
+              "_id": "AAAAAAGf3660c70f7a005838",
+              "_parent": {
+                "$ref": "AAAAAAG5871d53a4fad6decd"
+              },
+              "model": {
+                "$ref": "AAAAAAGb2a9efa6b5865ecd3"
+              },
+              "left": 360,
+              "top": 930,
+              "width": 260,
+              "height": 80
+            }
+          ]
+        },
+        {
+          "_type": "UMLClassDiagram",
+          "_id": "AAAAAAGf0770e46bffba8482",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "diagrama_clases",
+          "ownedViews": [
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG9a7b25e177fcddd8b",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG4bc79e8e34c5ff857"
+              },
+              "left": 80,
+              "top": 80,
+              "width": 260,
+              "height": 110
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG15a27cd0dccf0bfdf",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGc625eea2c1aa2fe60"
+              },
+              "left": 380,
+              "top": 80,
+              "width": 300,
+              "height": 150
+            },
+            {
+              "_type": "UMLActorView",
+              "_id": "AAAAAAGe7a39549ff29a6317",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              },
+              "left": 120,
+              "top": 10,
+              "width": 80,
+              "height": 50
+            },
+            {
+              "_type": "UMLActorView",
+              "_id": "AAAAAAGc84e7cfd86a0841b5",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG7048e924afc2d6fea"
+              },
+              "left": 500,
+              "top": 10,
+              "width": 80,
+              "height": 50
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG730bf16ce7840a9d3",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG59f7707f3c861bd70"
+              },
+              "left": 80,
+              "top": 300,
+              "width": 280,
+              "height": 120
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAGdfe2ad9dbe9120241",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG0c83e99b3a9af53fa"
+              },
+              "left": 400,
+              "top": 300,
+              "width": 320,
+              "height": 150
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG694b84e2165d66933",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG2823fa534476bac82"
+              },
+              "left": 760,
+              "top": 300,
+              "width": 280,
+              "height": 130
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG52cfba00aa384a2ef",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGcabeb1b50d72d4318"
+              },
+              "left": 1080,
+              "top": 300,
+              "width": 280,
+              "height": 110
+            },
+            {
+              "_type": "UMLInterfaceView",
+              "_id": "AAAAAAGb9f1dae27d793cc46",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGda569a5912af0836c"
+              },
+              "left": 80,
+              "top": 480,
+              "width": 280,
+              "height": 90
+            },
+            {
+              "_type": "UMLInterfaceView",
+              "_id": "AAAAAAG80501b2dcd6fac365",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG4a9aa7e96e690be04"
+              },
+              "left": 400,
+              "top": 480,
+              "width": 320,
+              "height": 110
+            },
+            {
+              "_type": "UMLDataTypeView",
+              "_id": "AAAAAAG94a5766a585fe017a",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG2f65a17cf5dad586b"
+              },
+              "left": 1080,
+              "top": 460,
+              "width": 280,
+              "height": 160
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG9efb96b4663b7e2d5",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGa13480e9d261c3063"
+              },
+              "left": 80,
+              "top": 680,
+              "width": 260,
+              "height": 120
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG293ffe3e01377b384",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG8ad259ae5123ff598"
+              },
+              "left": 400,
+              "top": 680,
+              "width": 280,
+              "height": 180
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG47a53b8522551abd6",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGfba221cf9d6a0e458"
+              },
+              "left": 740,
+              "top": 680,
+              "width": 240,
+              "height": 130
+            },
+            {
+              "_type": "UMLEnumerationView",
+              "_id": "AAAAAAG13aba3708005cc25c",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG1a2dc48d64304ff6a"
+              },
+              "left": 740,
+              "top": 850,
+              "width": 180,
+              "height": 90
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG1a5b6048a9fb62c0e",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG6bf63c8ef583fa138"
+              },
+              "left": 1040,
+              "top": 680,
+              "width": 260,
+              "height": 160
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAGc4f6a3ebae0af5a9e",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGf60f4de7a56264b72"
+              },
+              "left": 1040,
+              "top": 870,
+              "width": 260,
+              "height": 130
+            },
+            {
+              "_type": "UMLEnumerationView",
+              "_id": "AAAAAAGf564f0a3ec69d7557",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGb9b83a867daad9e25"
+              },
+              "left": 1340,
+              "top": 750,
+              "width": 200,
+              "height": 100
+            },
+            {
+              "_type": "UMLClassView",
+              "_id": "AAAAAAG575dd5fc57b426639",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG4b5e751d7b804089c"
+              },
+              "left": 1340,
+              "top": 900,
+              "width": 240,
+              "height": 160
+            },
+            {
+              "_type": "UMLComponentView",
+              "_id": "AAAAAAG9991911cb6f174002",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAG2e73dcf92270b6471"
+              },
+              "left": 80,
+              "top": 900,
+              "width": 220,
+              "height": 80
+            },
+            {
+              "_type": "UMLComponentView",
+              "_id": "AAAAAAG4150ec26583e1f7e0",
+              "_parent": {
+                "$ref": "AAAAAAGf0770e46bffba8482"
+              },
+              "model": {
+                "$ref": "AAAAAAGb2a9efa6b5865ecd3"
+              },
+              "left": 400,
+              "top": 900,
+              "width": 240,
+              "height": 80
+            }
+          ]
+        },
+        {
+          "_type": "UMLInteraction",
+          "_id": "AAAAAAG29fc670b2c39427f3",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "IngestaAnalisisML",
+          "participants": [
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGf8b57eec62f986d61",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "Usuario",
+              "represent": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGbebb1eceb846c3772",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "IncidenciasController",
+              "represent": {
+                "$ref": "AAAAAAGc625eea2c1aa2fe60"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGf57bda7fd17a77d4d",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "ServicioAdquisicionDatos",
+              "represent": {
+                "$ref": "AAAAAAG59f7707f3c861bd70"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGea0767c468b25caab",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "ILectorCSV",
+              "represent": {
+                "$ref": "AAAAAAGda569a5912af0836c"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG30c59eaa6d77ce7bf",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "ViaFerroviaria",
+              "represent": {
+                "$ref": "AAAAAAGa13480e9d261c3063"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGc66bbbefc2db0740c",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "DispositivoVia",
+              "represent": {
+                "$ref": "AAAAAAG8ad259ae5123ff598"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAGa7a230ba69ebadbae",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "ServicioIncidencias",
+              "represent": {
+                "$ref": "AAAAAAG0c83e99b3a9af53fa"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG364c7aa8789522e36",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "IModuloMachineLearning",
+              "represent": {
+                "$ref": "AAAAAAG4a9aa7e96e690be04"
+              }
+            }
+          ],
+          "messages": [
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGf8abf163bad2ccf19",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "cargarDatosCSV(\"DEV-01\", \"mediciones.csv\")",
+              "source": {
+                "$ref": "AAAAAAGf8b57eec62f986d61"
+              },
+              "target": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG8e158421d8222872b",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "procesarFicheroCSV(\"DEV-01\", \"mediciones.csv\")",
+              "source": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "target": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGe1e37ca1978bd17eb",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "leerMediciones(\"mediciones.csv\")",
+              "source": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "target": {
+                "$ref": "AAAAAAGea0767c468b25caab"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG4b8316229009d5608",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "mediciones",
+              "source": {
+                "$ref": "AAAAAAGea0767c468b25caab"
+              },
+              "target": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG7b082bc5ee63393ec",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "buscarDispositivo(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "target": {
+                "$ref": "AAAAAAG30c59eaa6d77ce7bf"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG3ea07ce28640a3820",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "dispositivo",
+              "source": {
+                "$ref": "AAAAAAG30c59eaa6d77ce7bf"
+              },
+              "target": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGa490d1bbf8f111e04",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "agregarMedicion(medicion)",
+              "source": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "target": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGe14a9a14ea8470ea7",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "void",
+              "source": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "target": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGdf51ff4460af2ad0d",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "numeroMediciones",
+              "source": {
+                "$ref": "AAAAAAGf57bda7fd17a77d4d"
+              },
+              "target": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG35036207fb0ff5f5b",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "procesarDispositivo(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGd274e68fb7b25d53a",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "buscarDispositivo(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAG30c59eaa6d77ce7bf"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGd76e860dd33c68ed1",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "dispositivo",
+              "source": {
+                "$ref": "AAAAAAG30c59eaa6d77ce7bf"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG4fc18b40f172606c4",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "obtenerMediciones()",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG50ba0ba5408b102b2",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "mediciones",
+              "source": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGfc44d28bce6cf6917",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "detectarIncidencias(mediciones)",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAG364c7aa8789522e36"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG856ba07b7db80bc32",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "incidencias",
+              "source": {
+                "$ref": "AAAAAAG364c7aa8789522e36"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG4a3836dd33b60266d",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "registrarIncidencia(incidencia)",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG5a85ae61872beb212",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "void",
+              "source": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG739c3912b8a7b6ec8",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "predecirIncidencias(mediciones)",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAG364c7aa8789522e36"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGc5d672b9b8fbbe448",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "predicciones",
+              "source": {
+                "$ref": "AAAAAAG364c7aa8789522e36"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGee0e7f01c4e030735",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "registrarPrediccion(prediccion)",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGebb15d62a89704d18",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "void",
+              "source": {
+                "$ref": "AAAAAAGc66bbbefc2db0740c"
+              },
+              "target": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGb585543eca0700318",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "totalProcesadas",
+              "source": {
+                "$ref": "AAAAAAGa7a230ba69ebadbae"
+              },
+              "target": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGdfd34a187174ec19a",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "200 OK (numeroMediciones, analisis ML completado)",
+              "source": {
+                "$ref": "AAAAAAGbebb1eceb846c3772"
+              },
+              "target": {
+                "$ref": "AAAAAAGf8b57eec62f986d61"
+              },
+              "messageSort": "reply"
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLSequenceDiagram",
+              "_id": "AAAAAAG896af39c99c399297",
+              "_parent": {
+                "$ref": "AAAAAAG29fc670b2c39427f3"
+              },
+              "name": "diagrama_secuencia_ingesta_ml",
+              "ownedViews": [
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG69bc6fc23a74e5046",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGf8b57eec62f986d61"
+                  },
+                  "left": 80,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG9ecc937e7b74a4bde",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGbebb1eceb846c3772"
+                  },
+                  "left": 240,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG6fbf65c8578ea8fe7",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGf57bda7fd17a77d4d"
+                  },
+                  "left": 400,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG41803754eec19c5b1",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGea0767c468b25caab"
+                  },
+                  "left": 560,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG4b25c049baf049633",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG30c59eaa6d77ce7bf"
+                  },
+                  "left": 720,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG035b0dda137e3a161",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGc66bbbefc2db0740c"
+                  },
+                  "left": 880,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG4b5bb9180fdba5cec",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAGa7a230ba69ebadbae"
+                  },
+                  "left": 1040,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG9f2bb0c33394cb5b6",
+                  "_parent": {
+                    "$ref": "AAAAAAG896af39c99c399297"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG364c7aa8789522e36"
+                  },
+                  "left": 1200,
+                  "top": 50,
+                  "width": 120,
+                  "height": 700
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "UMLInteraction",
+          "_id": "AAAAAAGa9c17aab454c2f003",
+          "_parent": {
+            "$ref": "AAAAAAG9a0b2416504303731"
+          },
+          "name": "ConsultaVisualizacion",
+          "participants": [
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG2a5f79d6443244ae4",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "Usuario",
+              "represent": {
+                "$ref": "AAAAAAG7a9f9d6eb0fa5d8f7"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG949d8dabf37e9af4e",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "VisualizacionController",
+              "represent": {
+                "$ref": "AAAAAAG4bc79e8e34c5ff857"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG19be522b43f689311",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "ServicioVisualizacion",
+              "represent": {
+                "$ref": "AAAAAAGcabeb1b50d72d4318"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG3ed34c3edc0fb3fd3",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "ViaFerroviaria",
+              "represent": {
+                "$ref": "AAAAAAGa13480e9d261c3063"
+              }
+            },
+            {
+              "_type": "UMLLifeline",
+              "_id": "AAAAAAG617fc85829924f592",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "DispositivoVia",
+              "represent": {
+                "$ref": "AAAAAAG8ad259ae5123ff598"
+              }
+            }
+          ],
+          "messages": [
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGcea5dc7aa2db84e80",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "obtenerDatosGrafica(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAG2a5f79d6443244ae4"
+              },
+              "target": {
+                "$ref": "AAAAAAG949d8dabf37e9af4e"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG61c7742185cfe5c5c",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "generarDatosGraficaMinuto(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAG949d8dabf37e9af4e"
+              },
+              "target": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGd2878f23328407228",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "buscarDispositivo(\"DEV-01\")",
+              "source": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "target": {
+                "$ref": "AAAAAAG3ed34c3edc0fb3fd3"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGa7983cbd7a8c29b57",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "dispositivo",
+              "source": {
+                "$ref": "AAAAAAG3ed34c3edc0fb3fd3"
+              },
+              "target": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG09929610c1b4a2561",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "obtenerMediciones()",
+              "source": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "target": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGcdc85b78b54f46725",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "mediciones",
+              "source": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "target": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGdcdd1c55d097cb19b",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "obtenerIncidencias()",
+              "source": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "target": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGf5d73cb5c7bf95949",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "incidencias",
+              "source": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "target": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG57fd4d8bb33ffa37a",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "obtenerPredicciones()",
+              "source": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "target": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "messageSort": "synchCall"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG2ddbf878c2bf4d971",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "predicciones",
+              "source": {
+                "$ref": "AAAAAAG617fc85829924f592"
+              },
+              "target": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAG029cb179b3e81a867",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "DatosGraficaMinuto",
+              "source": {
+                "$ref": "AAAAAAG19be522b43f689311"
+              },
+              "target": {
+                "$ref": "AAAAAAG949d8dabf37e9af4e"
+              },
+              "messageSort": "reply"
+            },
+            {
+              "_type": "UMLMessage",
+              "_id": "AAAAAAGbfe1c9ff62105d54a",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "200 OK (DatosGraficaMinuto)",
+              "source": {
+                "$ref": "AAAAAAG949d8dabf37e9af4e"
+              },
+              "target": {
+                "$ref": "AAAAAAG2a5f79d6443244ae4"
+              },
+              "messageSort": "reply"
+            }
+          ],
+          "ownedElements": [
+            {
+              "_type": "UMLSequenceDiagram",
+              "_id": "AAAAAAGd8dfea5ceb6c60d21",
+              "_parent": {
+                "$ref": "AAAAAAGa9c17aab454c2f003"
+              },
+              "name": "diagrama_secuencia_visualizacion",
+              "ownedViews": [
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG6df0873438b70ea06",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8dfea5ceb6c60d21"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG2a5f79d6443244ae4"
+                  },
+                  "left": 100,
+                  "top": 50,
+                  "width": 140,
+                  "height": 500
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAGc39c5ce1f9282036c",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8dfea5ceb6c60d21"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG949d8dabf37e9af4e"
+                  },
+                  "left": 300,
+                  "top": 50,
+                  "width": 140,
+                  "height": 500
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAGa2764f272dac8f19f",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8dfea5ceb6c60d21"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG19be522b43f689311"
+                  },
+                  "left": 500,
+                  "top": 50,
+                  "width": 140,
+                  "height": 500
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAGc620db56a83342b06",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8dfea5ceb6c60d21"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG3ed34c3edc0fb3fd3"
+                  },
+                  "left": 700,
+                  "top": 50,
+                  "width": 140,
+                  "height": 500
+                },
+                {
+                  "_type": "UMLSeqLifelineView",
+                  "_id": "AAAAAAG7ad9ae901d1d35e30",
+                  "_parent": {
+                    "$ref": "AAAAAAGd8dfea5ceb6c60d21"
+                  },
+                  "model": {
+                    "$ref": "AAAAAAG617fc85829924f592"
+                  },
+                  "left": 900,
+                  "top": 50,
+                  "width": 140,
+                  "height": 500
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
