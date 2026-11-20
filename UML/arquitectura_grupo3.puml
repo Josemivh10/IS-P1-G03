@@ -1,0 +1,458 @@
+@startuml DiagramaPaquetes
+!pragma layout smetana
+skinparam packageStyle rectangle
+skinparam roundcorner 6
+skinparam shadowing false
+skinparam defaultFontName "sans-serif"
+skinparam defaultFontSize 11
+skinparam linetype ortho
+
+skinparam package {
+  BackgroundColor<<Capa>> #F8FAFC
+  BorderColor<<Capa>> #334155
+  FontColor<<Capa>> #0F172A
+  FontSize<<Capa>> 13
+  FontStyle<<Capa>> bold
+}
+
+title Diagrama de Arquitectura Modular en 4 Capas - Sistema Ferroviario (Grupo 3)
+
+package "Capa Presentación" as Presentacion <<Capa>> #E8F0FE {
+  package "Visualización REST" as PkgVisPres #FFFFFF {
+    class VisualizacionController
+  }
+  package "Incidencias y Suscripciones REST" as PkgIncPres #FFFFFF {
+    class IncidenciasController
+  }
+}
+
+package "Capa Aplicación" as Aplicacion <<Capa>> #FEF7E0 {
+  package "Adquisición de Datos" as PkgAdqApp #FFFFFF {
+    class ServicioAdquisicionDatos
+    interface ILectorCSV <<interface>>
+  }
+  package "Detección y Predicción" as PkgIncApp #FFFFFF {
+    class ServicioIncidencias
+    interface IModuloMachineLearning <<interface>>
+  }
+  package "Gestión de Suscripciones" as PkgSuscApp #FFFFFF {
+    class ServicioSuscripciones
+  }
+  package "Visualización Gráfica" as PkgVisApp #FFFFFF {
+    class ServicioVisualizacion
+    class DatosGraficaMinuto <<dataType>>
+  }
+}
+
+package "Capa Dominio" as Dominio <<Capa>> #E6F4EA {
+  package "Gestión de Dispositivos" as PkgRedDom #FFFFFF {
+    class ViaFerroviaria
+    class DispositivoVia
+    class MedicionElectrica
+    enum EstadoOcupacion <<enumeration>>
+  }
+  package "Incidencias y Predicciones" as PkgIncDom #FFFFFF {
+    class Incidencia
+    class PrediccionIncidencia
+    enum TipoIncidencia <<enumeration>>
+  }
+  package "Suscripciones" as PkgSuscDom #FFFFFF {
+    class Suscripcion
+  }
+}
+
+package "Capa Infraestructura" as Infraestructura <<Capa>> #F1F3F4 {
+  class AdaptadorLecturaCSV <<component>>
+  class ComponenteMachineLearning <<component>>
+}
+
+' Relaciones entre capas y módulos
+Presentacion ..> Aplicacion : <<use>>\nInvoca servicios de aplicación
+Aplicacion ..> Dominio : <<use>>\nManipula entidades del negocio
+
+AdaptadorLecturaCSV .up.|> ILectorCSV : <<realize>>\nLectura de CSV
+ComponenteMachineLearning .up.|> IModuloMachineLearning : <<realize>>\nInferencia ML
+
+PkgVisPres ..> PkgVisApp : consulta datos de gráfica
+PkgIncPres ..> PkgAdqApp : coordina carga CSV
+PkgIncPres ..> PkgIncApp : gestiona detección y ML
+PkgIncPres ..> PkgSuscApp : gestiona suscripciones
+
+@enduml
+
+@startuml DiagramaClases
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam roundcorner 5
+skinparam shadowing false
+skinparam defaultFontName "sans-serif"
+skinparam defaultFontSize 11
+skinparam linetype ortho
+
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #334155
+  ArrowColor #1E293B
+}
+
+skinparam package {
+  BackgroundColor #F8FAFC
+  BorderColor #64748B
+  FontSize 12
+  FontStyle bold
+}
+
+title Diagrama de Clases - Arquitectura de 12 Clases Principales (Grupo 3)
+
+' ================= CAPA PRESENTACION =================
+package "Presentación" as Presentacion #E8F0FE {
+  class VisualizacionController {
+    + obtenerDatosGrafica(idDispositivo: String): DatosGraficaMinuto
+  }
+
+  class IncidenciasController {
+    + cargarDatosCSV(idDispositivo: String, rutaFichero: String): int
+    + procesarDispositivo(idDispositivo: String): int
+    + publicarIncidencia(tipo: String, descripcion: String, idUsuario: String, idDispositivo: String): String
+    + suscribirGestor(idGestor: String, tipoIncidencia: String): String
+  }
+}
+
+' ================= CAPA APLICACION =================
+package "Aplicación" as Aplicacion #FEF7E0 {
+  class ServicioAdquisicionDatos {
+    - lectorCSV: ILectorCSV
+    + procesarFicheroCSV(idDispositivo: String, rutaFichero: String): int
+    - asociarMediciones(dispositivo: DispositivoVia, mediciones: List<MedicionElectrica>): void
+  }
+
+  class ServicioIncidencias {
+    - moduloML: IModuloMachineLearning
+    + procesarDispositivo(idDispositivo: String): int
+    + evaluarIncidencias(dispositivo: DispositivoVia): List<Incidencia>
+    + generarPredicciones(dispositivo: DispositivoVia): List<PrediccionIncidencia>
+    + publicarIncidenciaManual(tipo: String, descripcion: String, idUsuario: String, idDispositivo: String): String
+  }
+
+  class ServicioSuscripciones {
+    + registrarSuscripcion(idGestor: String, tipoIncidencia: String): String
+    + cancelarSuscripcion(idSuscripcion: String): boolean
+    + consultarSuscripcionesPorTipo(tipo: String): List<Suscripcion>
+    + consultarSuscripcionesPorGestor(idGestor: String): List<Suscripcion>
+  }
+
+  class ServicioVisualizacion {
+    + generarDatosGraficaMinuto(idDispositivo: String): DatosGraficaMinuto
+  }
+
+  interface ILectorCSV <<interface>> {
+    + leerMediciones(rutaFichero: String): List<MedicionElectrica>
+  }
+
+  interface IModuloMachineLearning <<interface>> {
+    + detectarIncidencias(mediciones: List<MedicionElectrica>): List<Incidencia>
+    + predecirIncidencias(mediciones: List<MedicionElectrica>): List<PrediccionIncidencia>
+  }
+
+  class DatosGraficaMinuto <<dataType>> {
+    + minutoReferencia: String
+    + voltajes: List<Double>
+    + estadosOcupacion: List<EstadoOcupacion>
+    + horas: List<String>
+    + incidencias: List<Incidencia>
+    + predicciones: List<PrediccionIncidencia>
+  }
+}
+
+' ================= CAPA DOMINIO =================
+package "Dominio" as Dominio #E6F4EA {
+  class ViaFerroviaria {
+    - idVia: String
+    - nombre: String
+    + agregarDispositivo(dispositivo: DispositivoVia): void
+    + buscarDispositivo(idDispositivo: String): DispositivoVia
+    + obtenerDispositivos(): List<DispositivoVia>
+  }
+
+  class DispositivoVia {
+    - idDispositivo: String
+    - posicionMetros: int
+    + agregarMedicion(medicion: MedicionElectrica): void
+    + registrarIncidencia(incidencia: Incidencia): void
+    + registrarPrediccion(prediccion: PrediccionIncidencia): void
+    + obtenerMediciones(): List<MedicionElectrica>
+    + obtenerIncidencias(): List<Incidencia>
+    + obtenerPredicciones(): List<PrediccionIncidencia>
+    + getIdDispositivo(): String
+    + getPosicionMetros(): int
+  }
+  note bottom of DispositivoVia : {Distancia entre dispositivos consecutivos:\n 200 o 500 metros (RF3.1)}
+
+  class MedicionElectrica {
+    - hora: String
+    - voltaje: double
+    - estado: EstadoOcupacion
+    + getHora(): String
+    + getVoltaje(): double
+    + getEstado(): EstadoOcupacion
+  }
+
+  class Incidencia {
+    - idIncidencia: String
+    - tipo: TipoIncidencia
+    - timestamp: String
+    - descripcion: String
+    - idUsuarioPublicador: String
+    + esPublicacionManual(): boolean
+    + getIdIncidencia(): String
+    + getTipo(): TipoIncidencia
+    + getTimestamp(): String
+    + getDescripcion(): String
+    + getIdUsuarioPublicador(): String
+  }
+
+  class PrediccionIncidencia {
+    - idPrediccion: String
+    - tipo: TipoIncidencia
+    - timestampPrediccion: String
+    + getIdPrediccion(): String
+    + getTipo(): TipoIncidencia
+    + getTimestampPrediccion(): String
+  }
+
+  class Suscripcion {
+    - idSuscripcion: String
+    - idGestor: String
+    - tipo: TipoIncidencia
+    - activa: boolean
+    + activar(): void
+    + desactivar(): void
+    + isActiva(): boolean
+    + getIdSuscripcion(): String
+    + getIdGestor(): String
+    + getTipo(): TipoIncidencia
+  }
+
+  enum EstadoOcupacion <<enumeration>> {
+    OCUPADO = 0
+    LIBRE = 1
+  }
+
+  enum TipoIncidencia <<enumeration>> {
+    BLOQUEO_PROLONGADO
+    SALTO_FRECUENCIA
+  }
+}
+
+' ================= CAPA INFRAESTRUCTURA =================
+package "Infraestructura" as Infraestructura #F1F3F4 {
+  class AdaptadorLecturaCSV <<component>>
+  class ComponenteMachineLearning <<component>>
+}
+
+' ================= ACTORES UML =================
+class Usuario <<actor>> #FEF08A
+class Gestor <<actor>> #FEF08A
+
+' ================= RELACIONES DE DOMINIO =================
+ViaFerroviaria "1" *-- "0..*" DispositivoVia : contiene
+DispositivoVia "1" *-- "0..*" MedicionElectrica : registra
+DispositivoVia "1" o-- "0..*" Incidencia : asocia
+DispositivoVia "1" o-- "0..*" PrediccionIncidencia : asocia
+
+MedicionElectrica --> "1" EstadoOcupacion : clasifica
+Incidencia --> "1" TipoIncidencia : clasifica
+PrediccionIncidencia --> "1" TipoIncidencia : clasifica
+Suscripcion --> "1" TipoIncidencia : clasifica
+
+' ================= RELACIONES DE APLICACION =================
+ServicioSuscripciones ..> Suscripcion : gestiona
+ServicioAdquisicionDatos ..> ILectorCSV : utiliza
+ServicioAdquisicionDatos ..> ViaFerroviaria : busca dispositivo
+ServicioAdquisicionDatos ..> DispositivoVia : asocia mediciones
+ServicioAdquisicionDatos ..> MedicionElectrica : crea
+ServicioIncidencias ..> IModuloMachineLearning : utiliza
+ServicioIncidencias ..> ViaFerroviaria : busca dispositivo
+ServicioIncidencias ..> DispositivoVia : registra incidencias/predicciones
+ServicioIncidencias ..> Incidencia : crea
+ServicioIncidencias ..> PrediccionIncidencia : crea
+ServicioVisualizacion ..> ViaFerroviaria : busca dispositivo
+ServicioVisualizacion ..> DispositivoVia : consulta mediciones/estados
+ServicioVisualizacion ..> DatosGraficaMinuto : construye
+
+' ================= RELACIONES DE PRESENTACION =================
+VisualizacionController ..> ServicioVisualizacion : delega
+IncidenciasController ..> ServicioAdquisicionDatos : delega
+IncidenciasController ..> ServicioIncidencias : delega
+IncidenciasController ..> ServicioSuscripciones : delega
+
+Usuario ..> VisualizacionController : consulta gráfica (HTTP/REST)
+Usuario ..> IncidenciasController : publica incidencia / carga CSV (HTTP/REST)
+Gestor ..> IncidenciasController : suscribe gestor (HTTP/REST)
+
+' ================= INVERSION DE DEPENDENCIAS =================
+AdaptadorLecturaCSV .up.|> ILectorCSV : implementa
+ComponenteMachineLearning .up.|> IModuloMachineLearning : implementa
+
+@enduml
+
+@startuml DiagramaSecuenciaIngestaML
+!pragma layout smetana
+skinparam roundcorner 5
+skinparam shadowing false
+skinparam defaultFontName "sans-serif"
+skinparam defaultFontSize 11
+skinparam sequenceMessageAlign center
+skinparam linetype ortho
+autonumber
+
+title Diagrama de Secuencia 1: Carga de CSV y Análisis Automático mediante ML (Grupo 3)
+
+actor "Usuario" as Usuario
+boundary ":IncidenciasController" as IncCtrl
+control ":ServicioAdquisicionDatos" as ServAdq
+entity ":ILectorCSV" as LectorCSV
+entity ":ViaFerroviaria" as Via
+entity "dispositivo:DispositivoVia" as DispVia
+control ":ServicioIncidencias" as ServInc
+entity ":IModuloMachineLearning" as ModuloML
+
+== 1. Carga de Fichero CSV y Asociación al Dispositivo ==
+
+Usuario -> IncCtrl : cargarDatosCSV("DEV-01", "mediciones.csv")
+activate IncCtrl
+
+IncCtrl -> ServAdq : procesarFicheroCSV("DEV-01", "mediciones.csv")
+activate ServAdq
+
+ServAdq -> LectorCSV : leerMediciones("mediciones.csv")
+activate LectorCSV
+LectorCSV --> ServAdq : mediciones
+deactivate LectorCSV
+
+ServAdq -> Via : buscarDispositivo("DEV-01")
+activate Via
+Via --> ServAdq : dispositivo
+deactivate Via
+
+ServAdq -> ServAdq : asociarMediciones(dispositivo, mediciones)
+activate ServAdq
+loop por cada medicion en mediciones
+  ServAdq -> DispVia : agregarMedicion(medicion)
+  activate DispVia
+  DispVia --> ServAdq
+  deactivate DispVia
+end
+deactivate ServAdq
+
+ServAdq --> IncCtrl : numeroMediciones
+deactivate ServAdq
+
+== 2. Análisis Automático Continuo mediante Machine Learning ==
+
+IncCtrl -> ServInc : procesarDispositivo("DEV-01")
+activate ServInc
+
+ServInc -> Via : buscarDispositivo("DEV-01")
+activate Via
+Via --> ServInc : dispositivo
+deactivate Via
+
+ServInc -> DispVia : obtenerMediciones()
+activate DispVia
+DispVia --> ServInc : mediciones
+deactivate DispVia
+
+ServInc -> ModuloML : detectarIncidencias(mediciones)
+activate ModuloML
+ModuloML --> ServInc : incidencias
+deactivate ModuloML
+
+opt incidencias detectadas
+  loop por cada incidencia en incidencias
+    ServInc -> DispVia : registrarIncidencia(incidencia)
+    activate DispVia
+    DispVia --> ServInc
+    deactivate DispVia
+  end
+end
+
+ServInc -> ModuloML : predecirIncidencias(mediciones)
+activate ModuloML
+ModuloML --> ServInc : predicciones
+deactivate ModuloML
+
+opt predicciones generadas
+  loop por cada prediccion en predicciones
+    ServInc -> DispVia : registrarPrediccion(prediccion)
+    activate DispVia
+    DispVia --> ServInc
+    deactivate DispVia
+  end
+end
+
+ServInc --> IncCtrl : totalProcesadas
+deactivate ServInc
+
+IncCtrl --> Usuario : 200 OK (numeroMediciones procesadas, análisis ML completado)
+deactivate IncCtrl
+
+@enduml
+
+@startuml DiagramaSecuenciaVisualizacion
+!pragma layout smetana
+skinparam roundcorner 5
+skinparam shadowing false
+skinparam defaultFontName "sans-serif"
+skinparam defaultFontSize 11
+skinparam sequenceMessageAlign center
+skinparam linetype ortho
+autonumber
+
+title Diagrama de Secuencia 2: Consulta Gráfica Periódica (Grupo 3)
+
+actor "Usuario" as Usuario
+boundary ":VisualizacionController" as VisCtrl
+control ":ServicioVisualizacion" as ServVis
+entity ":ViaFerroviaria" as Via
+entity "dispositivo:DispositivoVia" as DispVia
+
+== Ciclo de Consulta Gráfica Periódica (Cadencia Temporal: 1 Minuto) ==
+
+loop cada 1 minuto (cadencia de actualización cliente web)
+  Usuario -> VisCtrl : obtenerDatosGrafica("DEV-01")
+  activate VisCtrl
+  
+  VisCtrl -> ServVis : generarDatosGraficaMinuto("DEV-01")
+  activate ServVis
+  
+  ServVis -> Via : buscarDispositivo("DEV-01")
+  activate Via
+  Via --> ServVis : dispositivo
+  deactivate Via
+  
+  ServVis -> DispVia : obtenerMediciones()
+  activate DispVia
+  DispVia --> ServVis : mediciones
+  deactivate DispVia
+  
+  ServVis -> DispVia : obtenerIncidencias()
+  activate DispVia
+  DispVia --> ServVis : incidencias
+  deactivate DispVia
+  
+  ServVis -> DispVia : obtenerPredicciones()
+  activate DispVia
+  DispVia --> ServVis : predicciones
+  deactivate DispVis
+  
+  ServVis -> ServVis : agruparPorMinuto(mediciones, incidencias, predicciones)
+  
+  ServVis --> VisCtrl : DatosGraficaMinuto
+  deactivate ServVis
+  
+  VisCtrl --> Usuario : 200 OK (DatosGraficaMinuto: voltajes, estados, incidencias)
+  deactivate VisCtrl
+end
+
+@enduml
